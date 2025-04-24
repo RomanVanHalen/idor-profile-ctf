@@ -2,13 +2,26 @@
 <html>
 <head>
   <title>Login</title>
+  <script>
+    function validateLogin() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      
+      // Hardcoded credentials
+      if (username === "user1" && password === "password123") {
+        window.location.href = "profile1.html";  // Redirect to profile1.html (Alice's profile)
+      } else {
+        alert("Invalid login credentials! Try again.");
+      }
+    }
+  </script>
 </head>
 <body style="font-family: Arial, sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh;">
 
   <div style="background: white; padding: 40px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); width: 300px;">
     <h2 style="text-align: center; color: #333;">Login</h2>
     
-    <form action="profile1.html" method="get">
+    <form onsubmit="event.preventDefault(); validateLogin();">
       <label for="username" style="display: block; margin-top: 15px; font-weight: bold;">Username</label>
       <input type="text" id="username" name="username" placeholder="Enter username" required
              style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;">
